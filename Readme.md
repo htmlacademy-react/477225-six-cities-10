@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов»
 
 * Студент: [Elena Nikishina](https://up.htmlacademy.ru/react/10/user/477225).
-* Наставник: `Неизвестно`.
+* Наставник: [Ярослав Семенченко](https://up.htmlacademy.ru/react/10/user/146834).
 
 ---
 
