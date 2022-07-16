@@ -1,19 +1,10 @@
+import {Card} from '../../types/types';
 import Main from '../../pages/main/main';
 
-type AppProps = {
-  data: {
-    image: string,
-    price: number,
-    name: string,
-    type: string,
-    bookMark: boolean,
-    isPremium: boolean,
-    rating: number
-  }[]
+type PropsType = {
+  cardList: Card[]
 }
 
-function App({data}:AppProps): JSX.Element {
-  return <Main list={data}/>;
-}
+const App = ({cardList}: PropsType) => <Main cardList={cardList}/>;
 
 export default App;

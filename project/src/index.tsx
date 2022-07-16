@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
-import cardsData from './cardsData.json';
+import cardsData from './mock/cardsData.json';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -9,6 +9,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App data={cardsData}/>
+    <App cardList={cardsData}/>
   </React.StrictMode>,
 );

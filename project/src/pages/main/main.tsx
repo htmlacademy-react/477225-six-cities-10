@@ -1,21 +1,13 @@
+import {Card} from '../../types/types';
 import Header from '../../components/header/header';
 import PlaceCard from '../../components/place-card/place-card';
 
-type MainProps = {
-  list: {
-    image: string,
-    price: number,
-    name: string,
-    type: string,
-    bookMark: boolean,
-    isPremium: boolean,
-    rating: number
-  }[]
+type PropsType = {
+  cardList: Card[]
 }
 
-function Main({list}: MainProps): JSX.Element {
-
-  const placeCards = list.map((item) => <PlaceCard card={item} key={Math.random() * 2}/>);
+const Main = ({cardList}: PropsType) => {
+  const placeCards = cardList.map((item) => <PlaceCard cardItem={item} key={Math.random() * 2}/>);
   return (
     <div className="page page--gray page--main">
       <Header isLoginPage={false}/>
@@ -68,7 +60,7 @@ function Main({list}: MainProps): JSX.Element {
                 <span className="places__sorting-type" tabIndex={0}>
                   Popular
                   <svg className="places__sorting-arrow" width="7" height="4">
-                    <use xlinkHref="#icon-arrow-select"></use>
+                    <use xlinkHref="#icon-arrow-select"/>
                   </svg>
                 </span>
                 <ul className="places__options places__options--custom places__options--opened">
@@ -83,13 +75,13 @@ function Main({list}: MainProps): JSX.Element {
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map"/>
             </div>
           </div>
         </div>
       </main>
     </div>
   );
-}
+};
 
 export default Main;
