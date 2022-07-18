@@ -5,8 +5,3 @@ export enum AppRoute {
   Room = '/offer/:id',
   NotFoundPage = '*'
 }
-
-export enum AuthorizationStatus {
-  Auth = 'AUTH',
-  noAuth = 'NO_AUTH'
-}

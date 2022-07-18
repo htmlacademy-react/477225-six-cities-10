@@ -7,7 +7,6 @@ import Room from '../../pages/room/room';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import PrivateRoute from '../private-route/private-route';
 import {AppRoute} from '../../const';
-import {AuthorizationStatus} from '../../const';
 
 type PropsType = {
   cardList: Card[]
@@ -18,7 +17,7 @@ const App = ({cardList}: PropsType) => (
     <Routes>
       <Route path={AppRoute.Main} element={<Main cardList={cardList}/>}/>
       <Route path={AppRoute.Login} element={<Login/>}/>
-      <Route path={AppRoute.Favorites} element={<PrivateRoute isAuth={AuthorizationStatus.noAuth}><Favorites/></PrivateRoute>}/>
+      <Route path={AppRoute.Favorites} element={<PrivateRoute isAuth={false}><Favorites/></PrivateRoute>}/>
       <Route path={AppRoute.Room} element={<Room/>}/>
       <Route path={AppRoute.NotFoundPage} element={<NotFoundPage/>}/>
     </Routes>
