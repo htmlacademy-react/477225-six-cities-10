@@ -1,6 +1,6 @@
-import {Card} from '../../types/types';
-import Header from '../../components/header/header';
-import PlaceCard from '../../components/place-card/place-card';
+import {Card} from '../../types';
+import Header from '../../components/header';
+import PlaceCard from '../../components/place-card';
 
 type PropsType = {
   cardList: Card[]

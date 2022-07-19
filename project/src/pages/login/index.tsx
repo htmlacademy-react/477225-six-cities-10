@@ -1,4 +1,4 @@
-import Header from '../../components/header/header';
+import Header from '../../components/header';
 
 const Login = () => (
   <div className="page page--gray page--login">

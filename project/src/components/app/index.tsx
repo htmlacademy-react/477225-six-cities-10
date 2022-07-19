@@ -1,11 +1,11 @@
-import {Card} from '../../types/types';
+import {Card} from '../../types';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Main from '../../pages/main/main';
-import Login from '../../pages/login/login';
-import Favorites from '../../pages/favorites/favorites';
-import Room from '../../pages/room/room';
-import NotFoundPage from '../../pages/not-found-page/not-found-page';
-import PrivateRoute from '../private-route/private-route';
+import Main from '../../pages/main';
+import Login from '../../pages/login';
+import Favorites from '../../pages/favorites';
+import Room from '../../pages/room';
+import NotFoundPage from '../../pages/not-found-page';
+import PrivateRoute from '../private-route';
 import {AppRoute} from '../../const';
 
 type PropsType = {

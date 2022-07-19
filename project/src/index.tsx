@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/app/app';
+import App from './components/app';
 import cardsData from './mock/cardsData.json';
 
 const root = ReactDOM.createRoot(
