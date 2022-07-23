@@ -5,5 +5,7 @@ export type Card = {
   type: string,
   bookMark: boolean,
   isPremium: boolean,
-  rating: number
+  rating: number,
+  isFavorite: boolean,
+  id: number
 }
