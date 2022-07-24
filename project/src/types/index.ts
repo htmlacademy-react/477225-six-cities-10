@@ -9,3 +9,8 @@ export type Card = {
   isFavorite: boolean,
   id: number
 }
+
+export type requestData = {
+  review: string,
+  rating: string
+}

@@ -1,26 +1,34 @@
+import {Dispatch,SetStateAction} from 'react';
+import {Link} from 'react-router-dom';
 import {Card} from '../../types';
 
 type PropsType = {
   cardItem: Card,
-  func: (item:Card) => void
+  setActiveCardId: Dispatch<SetStateAction<null|number>>,
+  classTitle: string,
+  isFavorite?: boolean
 }
 
-const PlaceCard = ({cardItem, func}: PropsType) => {
+const PlaceCard = ({cardItem: {isPremium,image,price,name,type,id}, setActiveCardId, classTitle, isFavorite}: PropsType) => {
+
+  const getActiveCardId = () => setActiveCardId(id);
+  const classFavoritesInfo = isFavorite ? 'favorites__card-info' : '';
+
   return (
-    <article className="cities__card place-card" onMouseOver={() => func(cardItem)}>
-      {cardItem.isPremium &&
+    <article className={`${classTitle}__card place-card`} onMouseOver={getActiveCardId}>
+      {isPremium &&
       <div className="place-card__mark">
         <span>Premium</span>
       </div>}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${classTitle}__image-wrapper place-card__image-wrapper`}>
         <a href="#">
-          <img className="place-card__image" src={cardItem.image} width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={image} width="260" height="200" alt="Place image"/>
         </a>
       </div>
-      <div className="place-card__info">
+      <div className={`${classFavoritesInfo} place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;{cardItem.price}</b>
+            <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
@@ -37,9 +45,9 @@ const PlaceCard = ({cardItem, func}: PropsType) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{cardItem.name}</a>
+          <Link to={`/offer/${id}`}>{name}</Link>
         </h2>
-        <p className="place-card__type">{cardItem.type}</p>
+        <p className="place-card__type">{type}</p>
       </div>
     </article>
   );
