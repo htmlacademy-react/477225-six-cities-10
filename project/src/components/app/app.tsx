@@ -1,10 +1,5 @@
-import {Card} from '../../types/types';
-import Main from '../../pages/main/main';
+import AppRouter from '../../router';
 
-type PropsType = {
-  cardList: Card[]
-}
-
-const App = ({cardList}: PropsType) => <Main cardList={cardList}/>;
+const App = () => <AppRouter />;
 
 export default App;

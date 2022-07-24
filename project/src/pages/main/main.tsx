@@ -1,13 +1,9 @@
-import {Card} from '../../types/types';
 import Header from '../../components/header/header';
 import PlaceCard from '../../components/place-card/place-card';
+import cardsData from '../../mock/cardsData.json';
 
-type PropsType = {
-  cardList: Card[]
-}
-
-const Main = ({cardList}: PropsType) => {
-  const placeCards = cardList.map((item) => <PlaceCard cardItem={item} key={Math.random() * 2}/>);
+const Main = () => {
+  const placeCards = cardsData.map((item) => <PlaceCard cardItem={item} key={Math.random() * 2}/>);
   return (
     <div className="page page--gray page--main">
       <Header isLoginPage={false}/>
