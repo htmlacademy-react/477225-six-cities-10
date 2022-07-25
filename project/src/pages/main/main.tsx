@@ -1,12 +1,8 @@
-import {Card} from '../../types';
 import Header from '../../components/header';
 import PlaceCardList from '../../components/place-card-list';
+import offers from '../../mocks/offers';
 
-type PropsType = {
-  cardList: Card[]
-}
-
-const Main = ({cardList}: PropsType) => (
+const Main = () => (
   <div className="page page--gray page--main">
     <Header isLoginPage={false}/>
 
@@ -68,7 +64,7 @@ const Main = ({cardList}: PropsType) => (
                 <li className="places__option" tabIndex={0}>Top rated first</li>
               </ul>
             </form>
-            <PlaceCardList cardList={cardList} classTitle="cities"/>
+            <PlaceCardList cardList={offers} classTitle="cities"/>
           </section>
           <div className="cities__right-section">
             <section className="cities__map map"/>

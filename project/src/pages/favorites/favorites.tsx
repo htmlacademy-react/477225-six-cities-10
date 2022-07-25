@@ -21,7 +21,7 @@ const Favorites = () => {
                     </a>
                   </div>
                 </div>
-                <PlaceCardList cardList={favoriteCards} classTitle="favotites" />
+                <PlaceCardList cardList={favoriteCards} classTitle="favorites" />
               </li>
 
               <li className="favorites__locations-items">

@@ -13,7 +13,7 @@ const PlaceCardList = ({cardList, classTitle}: PropsType) => {
   const classListTitle = classNames({'favorites__places': classTitle === 'favorites', 'cities__places-list places__list tabs__content': classTitle === 'cities','near-places__list places__list': classTitle === 'near-places'});
   return (
     <div className={classListTitle}>
-      {cardList.map((item) => <PlaceCard cardItem={item} classTitle={classTitle} key={item.id} setActiveCardId={setActiveCardId}/>)}
+      {cardList.map((item) => <PlaceCard cardItem={item} isFavorite={classTitle === 'favorites'} classTitle={classTitle} key={item.id} setActiveCardId={setActiveCardId}/>)}
     </div>
   );
 };
