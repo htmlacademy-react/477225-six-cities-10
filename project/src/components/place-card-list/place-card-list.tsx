@@ -1,19 +1,49 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import {useLocation} from 'react-router-dom';
 import {Card} from '../../types';
 import PlaceCard from '../place-card';
 import classNames from 'classnames';
 
 type PropsType = {
-  cardList: Card[],
-  classTitle: string
+  cardList: Card[]
 }
 
-const PlaceCardList = ({cardList, classTitle}: PropsType) => {
+const PlaceCardList = ({cardList}: PropsType) => {
   const [, setActiveCardId] = useState<null | number>(null);
-  const classListTitle = classNames({'favorites__places': classTitle === 'favorites', 'cities__places-list places__list tabs__content': classTitle === 'cities','near-places__list places__list': classTitle === 'near-places'});
+  const [classTitle, setClassTitle] = useState<string>('');
+  const location = useLocation();
+  const classListTitle = classNames(
+    {
+      'favorites__places': location.pathname.includes('favorites'),
+      'cities__places-list places__list tabs__content': location.pathname === '/',
+      'near-places__list places__list': location.pathname.includes('offer')
+    }
+  );
+
+  const getClassTitle = (path: string) => {
+    if (path === '/') {
+      setClassTitle('cities');
+    }
+    if (path.includes('favorites')) {
+      setClassTitle('favorites');
+    }
+    if (path.includes('offer')) {
+      setClassTitle('near-places');
+    }
+    return '';
+  };
+
+  useEffect(() => {
+    getClassTitle(location.pathname);
+  }, [location]);
+
   return (
     <div className={classListTitle}>
-      {cardList.map((item) => <PlaceCard cardItem={item} isFavorite={classTitle === 'favorites'} classTitle={classTitle} key={item.id} setActiveCardId={setActiveCardId}/>)}
+      {cardList.map((item) => <PlaceCard cardItem={item}
+                                         classTitle={classTitle}
+                                         key={item.id}
+                                         setActiveCardId={setActiveCardId}
+      />)}
     </div>
   );
 };

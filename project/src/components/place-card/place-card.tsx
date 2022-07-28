@@ -5,14 +5,13 @@ import {Card} from '../../types';
 type PropsType = {
   cardItem: Card,
   setActiveCardId: Dispatch<SetStateAction<null|number>>,
-  classTitle: string,
-  isFavorite?: boolean
+  classTitle: string
 }
 
-const PlaceCard = ({cardItem: {isPremium,image,price,name,type,id}, setActiveCardId, classTitle, isFavorite}: PropsType) => {
+const PlaceCard = ({cardItem: {isPremium,image,price,name,type,id }, setActiveCardId, classTitle}: PropsType) => {
 
   const getActiveCardId = () => setActiveCardId(id);
-  const classFavoritesInfo = isFavorite ? 'favorites__card-info' : '';
+  const classFavoritesInfo = classTitle === 'favorites' ? 'favorites__card-info' : '';
 
   return (
     <article className={`${classTitle}__card place-card`} onMouseOver={getActiveCardId}>

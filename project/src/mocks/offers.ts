@@ -2,7 +2,7 @@ const offers =
   [
     {
       'image': 'img/apartment-01.jpg',
-      'isFavorite': false,
+      'isFavorite': true,
       'price': 120,
       'name': 'Beautiful &amp; luxurious apartment at great location',
       'type': 'Apartment',
@@ -13,7 +13,7 @@ const offers =
     },
     {
       'image': 'img/room.jpg',
-      'isFavorite': false,
+      'isFavorite': true,
       'price': 80,
       'name': 'Wood and stone place',
       'type': 'Private room',
@@ -24,7 +24,7 @@ const offers =
     },
     {
       'image': 'img/apartment-02.jpg',
-      'isFavorite': false,
+      'isFavorite': true,
       'price': 132,
       'name': 'Canal View Prinsengracht',
       'type': 'Apartment',

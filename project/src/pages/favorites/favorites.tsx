@@ -1,9 +1,11 @@
+import {Card} from './../../types';
 import Header from '../../components/header';
 import offers from '../../mocks/offers';
 import PlaceCardList from '../../components/place-card-list';
 
 const Favorites = () => {
-  const favoriteCards = offers.slice(0,3);
+  const getFavoriteCards = (list: Card[]) => list.filter((item: Card) => item.isFavorite);
+  const cards = getFavoriteCards(offers);
   return (
     <div className="page">
       <Header isLoginPage={false}/>
@@ -21,7 +23,7 @@ const Favorites = () => {
                     </a>
                   </div>
                 </div>
-                <PlaceCardList cardList={favoriteCards} classTitle="favorites" />
+                <PlaceCardList cardList={cards}/>
               </li>
 
               <li className="favorites__locations-items">
@@ -32,7 +34,7 @@ const Favorites = () => {
                     </a>
                   </div>
                 </div>
-                <PlaceCardList cardList={favoriteCards} classTitle="favorites" />
+                <PlaceCardList cardList={cards}/>
               </li>
             </ul>
           </section>

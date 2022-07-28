@@ -1,4 +1,5 @@
 import {useParams} from 'react-router-dom';
+import {Card} from '../../types';
 import offers from '../../mocks/offers';
 import Header from '../../components/header';
 import PlaceCardList from '../../components/place-card-list';
@@ -7,7 +8,9 @@ import ReviewForm from '../../components/review-form';
 const Room = () => {
   const {id} = useParams();
   const cardDetails = offers.find((item) => item.id.toString() === id) ? offers.find((item) => item.id.toString() === id) : null;
-  const nearestPlaceList = offers.slice(1,3);
+  const getList = (list:Card[]) => list.slice(1,3);
+  const nearestPlaceList = getList(offers);
+
   return (
     <div className="page">
       <Header isLoginPage={false}/>
@@ -167,7 +170,7 @@ const Room = () => {
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <PlaceCardList cardList={nearestPlaceList} classTitle="near-places" />
+            <PlaceCardList cardList={nearestPlaceList} />
           </section>
         </div>
       </main>
