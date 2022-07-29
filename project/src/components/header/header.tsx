@@ -22,12 +22,12 @@ const Header = ({isLoginPage,isLogged}: HeaderProps) => (
                 <div className="header__avatar-wrapper user__avatar-wrapper">
                 </div>
                 { isLogged &&
-                  <div>
-                    <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                    <span className="header__favorite-count">3</span>
-                  </div>}
+                <div>
+                  <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
+                  <span className="header__favorite-count">3</span>
+                </div>}
                 { !isLogged &&
-                  <span className="header__login">Sign in</span>}
+                <span className="header__login">Sign in</span>}
               </a>
             </li>
             { isLogged &&

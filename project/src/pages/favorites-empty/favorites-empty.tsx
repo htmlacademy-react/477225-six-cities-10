@@ -1,4 +1,4 @@
-import Header from '../../components/header/header';
+import Header from '../../components/header';
 
 const FavoritesEmpty = () => (
   <div className="page page--favorites-empty">

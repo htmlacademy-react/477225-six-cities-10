@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^1.5.0",
-    "axios": "^0.21.1",
+    "@reduxjs/toolkit": "^1.8.3",
+    "axios": "^0.21.4",
     "history": "^5.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -25,7 +25,42 @@
       "react-app",
       "react-app/jest",
       "htmlacademy/react-typescript"
-    ]
+    ],
+    "rules": {
+      "react/jsx-max-props-per-line": [
+        2,
+        {
+          "maximum": 1,
+          "when": "multiline"
+        }
+      ],
+      "react/jsx-wrap-multilines": "off",
+      "react/jsx-closing-bracket-location": [
+        1,
+        "tag-aligned"
+      ],
+      "indent": [
+        "error",
+        2,
+        {
+          "ignoredNodes": [
+            "JSXElement",
+            "JSXElement > *",
+            "JSXAttribute",
+            "JSXIdentifier",
+            "JSXNamespacedName",
+            "JSXMemberExpression",
+            "JSXSpreadAttribute",
+            "JSXExpressionContainer",
+            "JSXOpeningElement",
+            "JSXClosingElement",
+            "JSXText",
+            "JSXEmptyExpression",
+            "JSXSpreadChild"
+          ]
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [
@@ -51,6 +86,7 @@
     "@types/react-dom": "^18.0.6",
     "@types/react-redux": "^7.1.24",
     "axios-mock-adapter": "^1.19.0",
+    "classnames": "^2.3.1",
     "eslint-config-htmlacademy": "^6.0.0",
     "faker": "^5.5.3",
     "redux-devtools-extension": "^2.13.9",

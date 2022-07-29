@@ -1,4 +1,4 @@
-import {AppRouteList} from '../../router/enums';
+import {AppRouteList} from '../enums';
 import {Navigate} from 'react-router-dom';
 
 type PropsType = {
