@@ -10,7 +10,23 @@ export type Card = {
   id: number
 }
 
-export type requestData = {
+export type RequestData = {
   review: string,
   rating: string
+}
+
+export type CityCoordinate = {
+  title: string,
+  lat: number,
+  lng: number,
+  zoom?: number
+}
+
+export type Review = {
+  avatar: string,
+  name: string,
+  text: string,
+  dateTime: string,
+  rating: number,
+  id: number
 }
