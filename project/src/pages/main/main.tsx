@@ -5,6 +5,7 @@ import LocationsList from '../../components/locations-list';
 import {Card} from '../../types';
 import {CITIES_LIST} from '../../constants';
 import {useAppSelector, useAppDispatch} from '../../hooks/stateHooks';
+import {useEffect, useState} from 'react';
 import citiesData from '../../mocks/citiesData';
 import mapData from './../../mocks/map';
 import {setCurrentOffersList} from '../../actions/actions';
@@ -12,12 +13,18 @@ import {setCurrentOffersList} from '../../actions/actions';
 const Main = () => {
   const currentCity = useAppSelector((state) => state.city);
   const dispatch = useAppDispatch();
+  const [offersList, setOffersList] = useState<Card[]|[]>([]);
 
-  const getCurrentOffersList = (city:string) : Card[]=> {
+  const getCurrentOffersList = (city:string) => {
     const list:Card[] = citiesData[city].list;
     dispatch(setCurrentOffersList(list));
-    return list;
+    setOffersList(list);
   };
+
+  useEffect(() => {
+    getCurrentOffersList(currentCity);
+  },[currentCity]);
+
 
   return (
     <div className="page page--gray page--main">
@@ -32,7 +39,7 @@ const Main = () => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{`${getCurrentOffersList(currentCity).length} places to stay in ${currentCity}`}</b>
+              <b className="places__found">{`${offersList.length} places to stay in ${currentCity}`}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -48,7 +55,7 @@ const Main = () => {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <PlaceCardList cardList={getCurrentOffersList(currentCity)}/>
+              <PlaceCardList cardList={offersList}/>
             </section>
             <div className="cities__right-section">
               <div className="cities__map map">
